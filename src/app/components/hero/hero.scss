@@ -1,34 +1,18 @@
 .hero-section {
-  padding: calc(var(--spacing-unit) * 12) calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 10);
+  padding: calc(var(--spacing-unit) * 16) calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 12);
   text-align: center;
   background: transparent;
   position: relative;
   overflow: hidden;
 
-  // Decorative background elements
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(
-      circle,
-      rgba(201, 166, 122, 0.08) 0%,
-      rgba(201, 166, 122, 0.03) 40%,
-      transparent 70%
-    );
-    pointer-events: none;
-  }
-
   &::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
     height: 1px;
     background: linear-gradient(
       90deg,
@@ -40,48 +24,42 @@
 }
 
 .hero-content {
-  max-width: 920px;
+  max-width: 700px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
 
-.hero-title {
-  font-size: clamp(3rem, 8vw, 5.5rem);
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin: 0 0 calc(var(--spacing-unit) * 2) 0;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  position: relative;
-  display: inline-block;
-
-  // Subtle accent underline
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 3px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      var(--color-accent-primary) 50%,
-      transparent 100%
-    );
-    opacity: 0.4;
-  }
+.hero-greeting {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--color-text-tertiary);
+  margin: 0 0 calc(var(--spacing-unit) * 1) 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
-.hero-subtitle {
-  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+.hero-title {
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 calc(var(--spacing-unit) * 1.5) 0;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.hero-role {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 500;
+  color: var(--color-accent-secondary);
+  margin: 0 0 calc(var(--spacing-unit) * 3) 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-description {
+  font-size: clamp(1.0625rem, 2vw, 1.125rem);
   color: var(--color-text-secondary);
   margin: 0 0 calc(var(--spacing-unit) * 5) 0;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.6;
+  line-height: 1.7;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -96,49 +74,27 @@
 
 .cta-button {
   padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
-  border-radius: 100px;
-  font-size: 1rem;
+  border-radius: 6px;
+  font-size: 0.9375rem;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
   letter-spacing: -0.01em;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    width: 100%;
-    height: 100%;
-    border-radius: 100px;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
 
   &.primary {
     background: var(--color-text-primary);
     color: var(--color-bg-primary);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
     border: 1px solid var(--color-neutral-800);
 
-    &::before {
-      background: var(--color-neutral-700);
-    }
-
     &:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--color-neutral-700);
-
-      &::before {
-        transform: translate(-50%, -50%) scale(1);
-      }
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      background: var(--color-neutral-700);
     }
 
     &:active {
@@ -149,21 +105,13 @@
   &.secondary {
     background: transparent;
     color: var(--color-text-primary);
-    border: 1.5px solid var(--color-neutral-300);
-    position: relative;
-
-    &::before {
-      background: var(--color-neutral-100);
-    }
+    border: 1px solid var(--color-neutral-300);
 
     &:hover {
       border-color: var(--color-neutral-400);
-      transform: translateY(-2px);
+      transform: translateY(-1px);
       box-shadow: var(--shadow-sm);
-
-      &::before {
-        transform: translate(-50%, -50%) scale(1);
-      }
+      background: var(--color-neutral-100);
     }
 
     &:active {
@@ -174,26 +122,34 @@
 
 @media (max-width: 768px) {
   .hero-section {
-    padding: calc(var(--spacing-unit) * 10) calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 8);
+    padding: calc(var(--spacing-unit) * 12) calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 10);
+  }
+
+  .hero-greeting {
+    margin-bottom: calc(var(--spacing-unit) * 0.75);
   }
 
   .hero-title {
-    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    margin-bottom: calc(var(--spacing-unit) * 1.25);
   }
 
-  .hero-subtitle {
+  .hero-role {
+    margin-bottom: calc(var(--spacing-unit) * 2.5);
+  }
+
+  .hero-description {
     margin-bottom: calc(var(--spacing-unit) * 4);
   }
 
   .cta-button {
     padding: calc(var(--spacing-unit) * 1.75) calc(var(--spacing-unit) * 3.5);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: calc(var(--spacing-unit) * 8) calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 6);
+    padding: calc(var(--spacing-unit) * 10) calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 8);
   }
 
   .hero-cta {
