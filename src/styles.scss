@@ -1,51 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+/* Onyx Theme - Premium dark mode with copper accents */
 
 :root {
-  // Sophisticated color palette - warm neutrals with subtle accents
-  --color-bg-primary: #faf9f7;
-  --color-bg-secondary: #f5f3f0;
-  --color-bg-tertiary: #ffffff;
-  --color-surface: #ffffff;
-  --color-surface-hover: #fefefe;
+  // Background colors - deep, sophisticated darks
+  --color-bg-primary: #0d0d0f;
+  --color-bg-secondary: #131316;
+  --color-bg-tertiary: #1a1a1e;
+  --color-surface: #16161a;
+  --color-surface-elevated: #1c1c21;
+  --color-surface-hover: #202026;
 
-  // Text colors
-  --color-text-primary: #1a1816;
-  --color-text-secondary: #5f5b56;
-  --color-text-tertiary: #8a8681;
-  --color-text-accent: #d4a574;
+  // Text colors - warm off-whites and grays
+  --color-text-primary: #f5f1ea;
+  --color-text-secondary: #a8a39b;
+  --color-text-tertiary: #6e6a64;
+  --color-text-quaternary: #4a4640;
 
-  // Accent colors - warm, sophisticated tones
-  --color-accent-primary: #c9a67a;
-  --color-accent-secondary: #b89968;
-  --color-accent-tertiary: #e8d5bd;
-  --color-accent-muted: #f4ece1;
+  // Accent colors - rich copper and amber tones
+  --color-accent-primary: #d4915a;
+  --color-accent-secondary: #c4794a;
+  --color-accent-tertiary: #e8b08a;
+  --color-accent-muted: rgba(196, 121, 74, 0.1);
+  --color-accent-glow: rgba(212, 145, 90, 0.15);
 
-  // Neutral tones
-  --color-neutral-100: #f9f8f6;
-  --color-neutral-200: #f0ede8;
-  --color-neutral-300: #e6e1dc;
-  --color-neutral-400: #ccc7c1;
-  --color-neutral-500: #9a9590;
-  --color-neutral-600: #6b6762;
-  --color-neutral-700: #4a4744;
-  --color-neutral-800: #2d2b28;
-  --color-neutral-900: #1a1816;
+  // Border colors
+  --color-border-subtle: rgba(255, 245, 230, 0.06);
+  --color-border-default: rgba(255, 245, 230, 0.1);
+  --color-border-strong: rgba(255, 245, 230, 0.15);
+  --color-border-accent: rgba(196, 121, 74, 0.3);
 
-  // Shadows
-  --shadow-sm: 0 1px 2px 0 rgba(26, 24, 22, 0.03);
-  --shadow-md: 0 4px 6px -1px rgba(26, 24, 22, 0.06), 0 2px 4px -1px rgba(26, 24, 22, 0.04);
-  --shadow-lg: 0 10px 15px -3px rgba(26, 24, 22, 0.08), 0 4px 6px -2px rgba(26, 24, 22, 0.04);
-  --shadow-xl: 0 20px 25px -5px rgba(26, 24, 22, 0.1), 0 10px 10px -5px rgba(26, 24, 22, 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(26, 24, 22, 0.15);
+  // Neutral grays - warm tinted
+  --color-neutral-100: #f5f1ea;
+  --color-neutral-200: #d4cec3;
+  --color-neutral-300: #a8a39b;
+  --color-neutral-400: #6e6a64;
+  --color-neutral-500: #4a4640;
+  --color-neutral-600: #2e2c28;
+  --color-neutral-700: #1f1d1a;
+  --color-neutral-800: #16161a;
+  --color-neutral-900: #0d0d0f;
+
+  // Shadows - dramatic but subtle
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 8px -2px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 24px -6px rgba(0, 0, 0, 0.6), 0 4px 8px -4px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 24px 48px -12px rgba(0, 0, 0, 0.7), 0 8px 16px -8px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 32px -8px rgba(212, 145, 90, 0.25);
 
   // Borders
-  --border-radius-sm: 8px;
-  --border-radius-md: 12px;
-  --border-radius-lg: 16px;
-  --border-radius-xl: 24px;
+  --border-radius-sm: 6px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 14px;
+  --border-radius-xl: 20px;
 
   // Spacing
   --spacing-unit: 8px;
+
+  // Transitions
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -63,7 +76,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -74,8 +87,9 @@ body {
   color: var(--color-text-primary);
   overflow-x: hidden;
   position: relative;
+  min-height: 100vh;
 
-  // Subtle background texture
+  // Atmospheric background effects
   &::before {
     content: '';
     position: fixed;
@@ -84,19 +98,40 @@ body {
     width: 100%;
     height: 100%;
     background-image:
-      radial-gradient(circle at 20% 30%, rgba(201, 166, 122, 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(184, 153, 104, 0.02) 0%, transparent 50%);
+      radial-gradient(ellipse at 15% 10%, rgba(212, 145, 90, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 90%, rgba(196, 121, 74, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(232, 176, 138, 0.02) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
+  }
+
+  // Subtle noise texture
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: overlay;
   }
 }
 
 // Typography
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--color-text-primary);
+}
+
+h1 {
+  font-weight: 700;
+  letter-spacing: -0.04em;
 }
 
 p {
@@ -105,13 +140,19 @@ p {
 }
 
 a {
-  color: var(--color-accent-secondary);
+  color: var(--color-accent-primary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast);
 
   &:hover {
-    color: var(--color-accent-primary);
+    color: var(--color-accent-tertiary);
   }
+}
+
+// Selection styling
+::selection {
+  background: var(--color-accent-secondary);
+  color: var(--color-bg-primary);
 }
 
 // Scrollbar styling
@@ -121,15 +162,45 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-neutral-100);
+  background: var(--color-bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-neutral-300);
+  background: var(--color-neutral-600);
   border-radius: 5px;
-  border: 2px solid var(--color-neutral-100);
+  border: 2px solid var(--color-bg-secondary);
 
   &:hover {
-    background: var(--color-neutral-400);
+    background: var(--color-accent-secondary);
+  }
+}
+
+// Utility classes for animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px -10px rgba(212, 145, 90, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px -5px rgba(212, 145, 90, 0.6);
   }
 }
